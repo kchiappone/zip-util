@@ -11,21 +11,12 @@ import java.util.zip.ZipOutputStream;
 
 /**
  * @author Kurtis Chiappone
- * @date 10/9/2016
  */
 public class ZipUtil {
 
     private static final int BUFFER_SIZE = 2048;
     private static final Logger logger = LoggerFactory.getLogger( ZipUtil.class );
 
-    /**
-     * Adds an entry to the zip file.
-     *
-     * @param zos
-     * @param unzipped
-     * @throws FileNotFoundException
-     * @throws IOException
-     */
     private static void addZipEntry( ZipOutputStream zos, File unzipped ) throws FileNotFoundException, IOException {
 
         byte[] buffer = new byte[ BUFFER_SIZE ];
@@ -52,15 +43,6 @@ public class ZipUtil {
 
     }
 
-    /**
-     * Zips a file or directory.
-     *
-     * @param unzipped
-     * @param zipped
-     * @return
-     * @throws FileNotFoundException
-     * @throws IOException
-     */
     public static File zip( File unzipped, File zipped ) throws FileNotFoundException, IOException {
 
         ZipOutputStream zos = new ZipOutputStream( new BufferedOutputStream(
@@ -82,16 +64,6 @@ public class ZipUtil {
 
     }
 
-    /**
-     * Zips a directory.
-     *
-     * @param zos
-     * @param unzipped
-     * @param zipped
-     * @return
-     * @throws FileNotFoundException
-     * @throws IOException
-     */
     private static File zipDirectory( ZipOutputStream zos, File unzipped, File zipped )
                     throws FileNotFoundException, IOException {
 
@@ -120,16 +92,6 @@ public class ZipUtil {
 
     }
 
-    /**
-     * Zips a file.
-     *
-     * @param zos
-     * @param unzipped
-     * @param zipped
-     * @return
-     * @throws FileNotFoundException
-     * @throws IOException
-     */
     private static File zipFile( ZipOutputStream zos, File unzipped, File zipped )
                     throws FileNotFoundException, IOException {
 
